@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  arango:
+    image: arangodb:3.7.16
+    environment:
+      ARANGO_ROOT_PASSWORD: test
+    ports:
+    - 8529:8529
+    volumes:
+    - arango_data_volume:/var/lib/arangodb3
+    - arango_apps_volume:/var/lib/arangodb3-apps
+    networks:
+    - default
+
+volumes:
+  arango_data_volume:
+  arango_apps_volume:

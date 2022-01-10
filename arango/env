@@ -1,0 +1,4 @@
+# ArangoDB configuration
+ARANGODB_USERNAME=test
+ARANGODB_PASSWORD=test
+ARANGODB_DATABASE=test

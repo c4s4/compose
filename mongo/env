@@ -1,0 +1,6 @@
+# MongoDB docker configuration
+MONGO_INITDB_DATABASE=test
+MONGO_INITDB_ROOT_USERNAME=test
+MONGO_INITDB_ROOT_PASSWORD=test
+# MongoDB configuration URI
+MONGO_URI=mongodb://test:test@127.0.0.1:27017/
