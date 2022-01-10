@@ -1,15 +1,12 @@
 include env
 export
 
-psql-start: # Start PostgreSQL
-	$(title)
+start: # Start PostgreSQL
 	@docker-compose up -d postgresql
 
-psql-stop: # Stop PostgreSQL
-	$(title)
+stop: # Stop PostgreSQL
 	@docker-compose stop postgresql
 
-psql-shell: # Open PostgreSQL shell
-	$(title)
+shell: # Open PostgreSQL shell
 	@docker-compose exec -e POSTGRES_PASSWORD=$(POSTGRES_PASSWORD) postgresql \
 		psql -h $(POSTGRES_HOSTNAME) -U $(POSTGRES_USER) $(POSTGRES_DB)
