@@ -17,7 +17,7 @@ backup: # Backup PostgreSQL database
 	$(title)
 	@docker-compose exec -e PGPASSWORD=$(POSTGRES_PASSWORD) postgresql \
 		pg_dump -h $(POSTGRES_HOSTNAME) -p $(POSTGRES_PORT) -d $(POSTGRES_DB) -U $(POSTGRES_USER) \
-		-w -F tar -f /backup/$(POSTGRES_DB)-$(DATE).tar
+		-w -F tar -f $(POSTGRES_BACKUP_DIR)/$(POSTGRES_DB)-$(DATE).tar
 
 restore: # Restore PostgreSQL database
 	$(title)
@@ -27,4 +27,4 @@ restore: # Restore PostgreSQL database
 	@read file; \
 	docker-compose exec -e PGPASSWORD=$(POSTGRES_PASSWORD) postgresql \
 		pg_restore -h $(POSTGRES_HOSTNAME) -p $(POSTGRES_PORT) -d $(POSTGRES_DB) -U $(POSTGRES_USER) \
-		-w -c /backup/$$file
+		-w -c $(POSTGRES_BACKUP_DIR)/$$file
